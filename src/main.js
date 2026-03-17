@@ -6,43 +6,6 @@ if (window.lucide) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const preloader = document.getElementById('preloader');
-    const progressBar = document.getElementById('progressBar');
-    const loaderPercentage = document.getElementById('loaderPercentage');
-    const loaderStatus = document.getElementById('loaderStatus');
-
-    const loadingSteps = [
-        "Initializing AI Engine...",
-        "Loading Neural Modules...",
-        "Syncing 3D Assets...",
-        "Optimizing UI Components...",
-        "Finalizing Creative World..."
-    ];
-
-    let progress = 0;
-    const interval = setInterval(() => {
-        progress += Math.random() * 15;
-        if (progress > 100) progress = 100;
-        
-        progressBar.style.width = `${progress}%`;
-        loaderPercentage.innerText = `${Math.floor(progress)}%`;
-        
-        const stepIndex = Math.floor((progress / 100) * loadingSteps.length);
-        if (stepIndex < loadingSteps.length) {
-            loaderStatus.innerText = loadingSteps[stepIndex];
-        }
-
-        if (progress === 100) {
-            clearInterval(interval);
-            setTimeout(() => {
-                preloader.classList.add('fade-out');
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 800);
-            }, 500);
-        }
-    }, 200);
-
     const navbar = document.getElementById('navbar');
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
