@@ -196,6 +196,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+    // Portfolio Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const videoCards = document.querySelectorAll('.video-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons and add to clicked one
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            videoCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (filterValue === 'all' || cardCategory === filterValue) {
+                    card.style.display = 'flex';
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
     // Add CSS for revealed elements
     const styleSheet = document.createElement("style");
     styleSheet.innerText = `

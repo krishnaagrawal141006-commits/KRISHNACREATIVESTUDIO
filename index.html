@@ -197,10 +197,17 @@
         <div class="container text-center mb-5">
             <h2 class="section-title">Our <span class="gradient-text">Video Portfolio</span></h2>
             <p class="section-desc">Innovative cinematic experiences created with AI and modern digital tools.</p>
+            
+            <div class="filter-controls mt-3">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="wedding">Wedding</button>
+                <button class="filter-btn" data-filter="ai-creative">AI Creative</button>
+                <button class="filter-btn" data-filter="invitation">Invites</button>
+            </div>
         </div>
 
-        <div class="container video-grid">
-            <div class="video-card glass-glow">
+        <div class="container video-grid" id="portfolioGrid">
+            <div class="video-card glass-glow" data-category="ai-creative">
                 <div class="video-wrapper">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kCLkfYAUymo" title="AI Video Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -210,7 +217,7 @@
                 </div>
             </div>
             <!-- AI Pre Wedding Video -->
-            <div class="video-card glass-glow">
+            <div class="video-card glass-glow" data-category="wedding">
                 <div class="video-wrapper">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/z_uCL34MEh0" title="AI Pre Wedding Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -221,7 +228,7 @@
             </div>
 
             <!-- AI Product Video 1 -->
-            <div class="video-card glass-glow vertical-card">
+            <div class="video-card glass-glow vertical-card" data-category="ai-creative">
                 <div class="video-wrapper vertical">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/eve1-RQgPxQ" title="AI Product Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -232,7 +239,7 @@
             </div>
 
             <!-- AI Product Video 2 -->
-            <div class="video-card glass-glow vertical-card">
+            <div class="video-card glass-glow vertical-card" data-category="ai-creative">
                 <div class="video-wrapper vertical">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HOPAlH8Nt8U" title="AI Product Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -243,7 +250,7 @@
             </div>
 
             <!-- Wedding Invitation Video 1 -->
-            <div class="video-card glass-glow vertical-card">
+            <div class="video-card glass-glow vertical-card" data-category="invitation">
                 <div class="video-wrapper vertical">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/hQUe9xNYQwA" title="Wedding Invitation Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -254,7 +261,7 @@
             </div>
 
             <!-- Wedding Invitation Video 2 -->
-            <div class="video-card glass-glow vertical-card">
+            <div class="video-card glass-glow vertical-card" data-category="invitation">
                 <div class="video-wrapper vertical">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xOdgmZOJX-8" title="Wedding Invitation Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -265,7 +272,7 @@
             </div>
 
             <!-- Wedding Invitation Video 3 -->
-            <div class="video-card glass-glow vertical-card">
+            <div class="video-card glass-glow vertical-card" data-category="invitation">
                 <div class="video-wrapper vertical">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ExF7IL6HtsE" title="Wedding Invitation Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -276,7 +283,7 @@
             </div>
 
             <!-- Wedding Invitation Video 4 -->
-            <div class="video-card glass-glow vertical-card">
+            <div class="video-card glass-glow vertical-card" data-category="invitation">
                 <div class="video-wrapper vertical">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/aSBZCaTMTsI" title="Wedding Invitation Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>

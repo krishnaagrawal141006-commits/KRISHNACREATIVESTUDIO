@@ -498,6 +498,33 @@ body::after {
 .gallery-item:nth-child(2) { grid-column: span 2; }
 .gallery-item:nth-child(3) { grid-row: span 2; }
 
+/* Portfolio Filters */
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.5rem;
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
