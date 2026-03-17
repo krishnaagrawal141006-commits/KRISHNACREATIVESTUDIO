@@ -833,3 +833,71 @@ body::after {
         right: 20px;
     }
 }
+
+/* Custom Cursor */
+.cursor {
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border: 2px solid var(--accent-neon);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, transform 0.1s ease-out;
+    mix-blend-mode: difference;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cursor::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent-neon);
+    border-radius: 50%;
+}
+
+.cursor-blur {
+    width: 350px;
+    height: 350px;
+    background: var(--accent-glow);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    filter: blur(80px);
+    transition: transform 0.2s ease-out;
+    opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+    .cursor, .cursor-blur { display: none; }
+}
+
+/* 3D Tilt Class */
+.tilt-card {
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
+}
+
+.tilt-card > * {
+    transform: translateZ(20px);
+}
+
+/* AI Neural Background */
+#neuralCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+
