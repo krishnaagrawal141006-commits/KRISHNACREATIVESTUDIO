@@ -883,45 +883,34 @@ body::after {
     }
 }
 
-/* Custom Cursor */
+/* Custom Cursor - Transparent Inverse Lens */
 .cursor {
-    width: 45px;
-    height: 45px;
-    background: transparent;
-    border: 1.5px solid rgba(0, 242, 254, 0.5); /* Semi-transparent neon border */
+    width: 80px;
+    height: 80px;
+    background: white; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, transform 0.1s ease-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    transition: transform 0.1s ease-out, width 0.3s, height 0.3s;
+    mix-blend-mode: difference; /* This creates the 'transparent inversion' effect */
 }
 
-.cursor::after {
-    content: '';
-    width: 4px;
-    height: 4px;
-    background: rgba(0, 242, 254, 0.8);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-neon);
-}
-
+/* Outer Glow */
 .cursor-blur {
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
     background: var(--accent-glow);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9998;
     transform: translate(-50%, -50%);
-    filter: blur(80px);
+    filter: blur(100px);
     transition: transform 0.2s ease-out;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 @media (max-width: 1024px) {
