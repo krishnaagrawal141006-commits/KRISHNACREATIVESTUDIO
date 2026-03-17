@@ -885,28 +885,29 @@ body::after {
 
 /* Custom Cursor */
 .cursor {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     background: transparent;
-    border: 2px solid var(--accent-neon);
+    border: 1.5px solid rgba(0, 242, 254, 0.5); /* Semi-transparent neon border */
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
     transition: width 0.3s, height 0.3s, transform 0.1s ease-out;
-    mix-blend-mode: difference;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
 }
 
 .cursor::after {
     content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--accent-neon);
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 242, 254, 0.8);
     border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-neon);
 }
 
 .cursor-blur {
