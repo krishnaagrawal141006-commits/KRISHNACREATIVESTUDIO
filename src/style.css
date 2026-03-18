@@ -440,14 +440,45 @@ body::after {
     gap: 0.5rem;
 }
 
-.service-list li::before {
-    content: '→';
-    color: var(--accent-neon);
+.service-list li.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.service-card.featured {
-    border-color: var(--accent);
-    background: linear-gradient(180deg, rgba(94, 92, 230, 0.1) 0%, rgba(0,0,0,0) 100%);
+.play-sample {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    color: var(--accent-neon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    padding: 0;
+}
+
+.play-sample:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.play-sample.playing {
+    background: var(--accent);
+    color: white;
+    animation: pulse-audio 1.5s infinite;
+}
+
+@keyframes pulse-audio {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 var(--accent-glow); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 10px transparent; }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; }
 }
 
 .tag-cloud {

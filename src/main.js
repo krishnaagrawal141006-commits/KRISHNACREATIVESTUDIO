@@ -225,6 +225,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Audio Sample Player logic
+    let currentAudio = null;
+    let currentBtn = null;
+
+    const playBtns = document.querySelectorAll('.play-sample');
+    
+    playBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const parent = btn.closest('.audio-item');
+            const audioSrc = parent.getAttribute('data-audio');
+
+            // If clicking the same button that is currently playing
+            if (currentBtn === btn && currentAudio && !currentAudio.paused) {
+                currentAudio.pause();
+                updatePlayIcon(btn, false);
+                return;
+            }
+
+            // If another audio is playing, stop it
+            if (currentAudio) {
+                currentAudio.pause();
+                if (currentBtn) updatePlayIcon(currentBtn, false);
+            }
+
+            // Create new audio or use existing if it's the same src
+            if (!currentAudio || currentAudio.src !== audioSrc) {
+                currentAudio = new Audio(audioSrc);
+            }
+            
+            currentAudio.play();
+            currentBtn = btn;
+            updatePlayIcon(btn, true);
+
+            // Reset when audio ends
+            currentAudio.onended = () => {
+                updatePlayIcon(btn, false);
+                currentAudio = null;
+                currentBtn = null;
+            };
+        });
+    });
+
+    function updatePlayIcon(btn, isPlaying) {
+        const icon = btn.querySelector('i');
+        if (isPlaying) {
+            btn.classList.add('playing');
+            icon.setAttribute('data-lucide', 'pause');
+        } else {
+            btn.classList.remove('playing');
+            icon.setAttribute('data-lucide', 'play');
+        }
+        if (window.lucide) window.lucide.createIcons();
+    }
+
     // Add CSS for revealed elements
     const styleSheet = document.createElement("style");
     styleSheet.innerText = `
