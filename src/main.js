@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     playBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            const parent = btn.closest('.audio-item');
+            const parent = btn.closest('.audio-item') || btn.closest('.audio-card-player');
             const audioSrc = parent.getAttribute('data-audio');
 
             // If clicking the same button that is currently playing
@@ -270,12 +270,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updatePlayIcon(btn, isPlaying) {
         const icon = btn.querySelector('i');
+        const portfolioCard = btn.closest('.audio-portfolio-card');
+        
         if (isPlaying) {
             btn.classList.add('playing');
             icon.setAttribute('data-lucide', 'pause');
+            if (portfolioCard) portfolioCard.classList.add('audio-playing');
         } else {
             btn.classList.remove('playing');
             icon.setAttribute('data-lucide', 'play');
+            if (portfolioCard) portfolioCard.classList.remove('audio-playing');
         }
         if (window.lucide) window.lucide.createIcons();
     }
